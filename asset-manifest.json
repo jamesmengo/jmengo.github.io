@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/jmengo.github.io/static/css/main.c2620ac4.chunk.css",
+    "main.js": "/jmengo.github.io/static/js/main.27db9f80.chunk.js",
+    "main.js.map": "/jmengo.github.io/static/js/main.27db9f80.chunk.js.map",
+    "runtime-main.js": "/jmengo.github.io/static/js/runtime-main.8124614f.js",
+    "runtime-main.js.map": "/jmengo.github.io/static/js/runtime-main.8124614f.js.map",
+    "static/js/2.26d2f2bc.chunk.js": "/jmengo.github.io/static/js/2.26d2f2bc.chunk.js",
+    "static/js/2.26d2f2bc.chunk.js.map": "/jmengo.github.io/static/js/2.26d2f2bc.chunk.js.map",
+    "index.html": "/jmengo.github.io/index.html",
+    "precache-manifest.a37a2e4c2711efc139bda8e81c9645e0.js": "/jmengo.github.io/precache-manifest.a37a2e4c2711efc139bda8e81c9645e0.js",
+    "service-worker.js": "/jmengo.github.io/service-worker.js",
+    "static/css/main.c2620ac4.chunk.css.map": "/jmengo.github.io/static/css/main.c2620ac4.chunk.css.map",
+    "static/media/App.css": "/jmengo.github.io/static/media/background.bd1cfe17.jpg",
+    "static/media/chevronDown.svg": "/jmengo.github.io/static/media/chevronDown.0723c71a.svg",
+    "static/media/logo.svg": "/jmengo.github.io/static/media/logo.25bf045c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8124614f.js",
+    "static/js/2.26d2f2bc.chunk.js",
+    "static/css/main.c2620ac4.chunk.css",
+    "static/js/main.27db9f80.chunk.js"
+  ]
+}
