@@ -1,11 +1,26 @@
-.App {
-  font-family: 'Roboto';
-  font-weight: 700;
-  text-align: center;
-  background-image: url('./background1.jpg');
+/* Element over-ride styles */
+html, body {
+  background-image: url('./background.jpg');
   background-size: cover;
-  height: 100vh;
-  background-color: '#282c34';
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  font-family: 'Poppins';
+  color: white;
+}
+
+body::-webkit-scrollbar { width: 0 !important }
+
+body { overflow: -moz-scrollbars-none; }
+
+h1 {
+  font-size: 3rem;
+  color: 'white';
+}
+
+/* App Styles */
+.App {
+  overflow: hidden;
 }
 
 .App-logo {
@@ -28,23 +43,63 @@
 }
 
 .Filter {
-  height: 100vh;
+  height: 100%;
   background-color: black;
   opacity: 0.75;
   z-index: -9999;
 }
 
-.TitleContainer {
+.LandingContainer {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
-  height: 50vh;
+  height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
 
-.Title {
+.NameFirst {
   color: white;
   font-size: 6rem;
+  font-weight: 300;
+}
+
+.NameSecond {
+  color: darkgrey;
+  font-size: 6rem;
+  font-weight: 600;
+}
+
+.header1 {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.Chevron {
+  color: white;
+  height: 24;
+  margin-top: 2rem;
+}
+
+.AboutMeContainer {
+  height: 100vh;
+  padding: 4rem;
+}
+
+.AboutMeBody {
+  width: 70%;
+  margin-left: auto;
+  padding-top: 1rem;
+}
+
+hr {
+  height: 1rem;
+  width: 30%;
+  margin-left: 0;
+  margin-top: -2rem;
+  position: relative;
+  background-color: white;
 }
