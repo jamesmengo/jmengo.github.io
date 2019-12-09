@@ -49,6 +49,7 @@ h1 {
   z-index: -9999;
 }
 
+/* Home Page Styles */
 .LandingContainer {
   width: 80%;
   margin-left: auto;
@@ -72,7 +73,7 @@ h1 {
   font-weight: 600;
 }
 
-.header1 {
+.scrollText {
   color: white;
   font-size: 1.5rem;
   font-weight: 300;
@@ -84,6 +85,7 @@ h1 {
   margin-top: 2rem;
 }
 
+/* About Me Page Styles */
 .AboutMeContainer {
   height: 100vh;
   padding: 4rem;
@@ -95,15 +97,15 @@ h1 {
   padding: 1rem;
 }
 
-.AboutMeList li{
-  font-size: 2.5rem;
-}
-
-hr {
+.AboutMeBody hr {
   height: 1rem;
   width: 30%;
   margin-left: 0;
   margin-top: -2rem;
   position: relative;
   background-color: white;
+}
+
+.AboutMeList li{
+  font-size: 2.5rem;
 }
