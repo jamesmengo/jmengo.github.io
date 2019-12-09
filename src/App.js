@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import { Zoom, Fade } from 'react-reveal';
+import { Fade } from 'react-reveal';
 import Typist from 'react-typist';
-import Chevron from './chevronDown.svg';
-import { Link, animateScroll as scroll } from "react-scroll";
+import Chevron from './assets/chevronDown.svg';
+import { Link, animateScroll as scroll } from 'react-scroll';
+import { Container, Row, Col } from 'react-grid-system';
+
 import './App.css';
 
+// COnvert the about me page to 3 columns - more effective use ofthe white space
+
 const displayStrings = ['Developer', 'Student Leader', 'Critical Thinker']
-// TODO: refactor styling (withStyles ?)
-// fix the github pages deploy
 
 class App extends Component {
+
+
   render() {
     return (
       <div className="App">
@@ -48,14 +51,20 @@ class App extends Component {
             </Fade>
             <Fade right delay={800} timeout={2000}>
               <div className='AboutMeBody'>
-                <ul>
-                  <li>
-                    I'm passionate about finding simple solutions to complex problems
-                  </li>
-                  <li>
-                    I'm always looking for opportunities to push myself by learning new things
-                  </li>
-                </ul>
+                <Container className='AboutMeList'>
+                <Row>
+                  <Col xs={12} sm={4}>
+                      I enjoy working with new technologies and
+                      finding simple solutions to complex problems
+                  </Col>
+                  <Col xs={12} sm={4}>
+                    I'm always picking up new hobbies, but photography, snowboarding, and hiking are consistent.
+                  </Col>
+                  <Col xs={12} sm={4}>
+                    I'm always picking up new hobbies, but photography, snowboarding, and hiking are consistent.
+                  </Col>
+                </Row>  
+                </Container>
                 {/* <h3>
                   I'm passionate about finding simple solutions to complex problems
                   <br />
