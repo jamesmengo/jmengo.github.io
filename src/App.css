@@ -49,42 +49,6 @@ h1 {
   z-index: -9999;
 }
 
-/* Home Page Styles */
-.LandingContainer {
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.NameFirst {
-  color: white;
-  font-size: 6rem;
-  font-weight: 300;
-}
-
-.NameSecond {
-  color: darkgrey;
-  font-size: 6rem;
-  font-weight: 600;
-}
-
-.scrollText {
-  color: white;
-  font-size: 1.5rem;
-  font-weight: 300;
-}
-
-.Chevron {
-  color: white;
-  height: 24;
-  margin-top: 2rem;
-}
-
 /* About Me Page Styles */
 .AboutMeContainer {
   height: 100vh;

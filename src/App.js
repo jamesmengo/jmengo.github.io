@@ -7,6 +7,8 @@ import { Container, Row, Col } from 'react-grid-system';
 import { appStyles } from './Style.js';
 import './App.css';
 
+import { LandingContainer } from './LandingContainer';
+
 const styles = appStyles();
 
 // Convert the about me page to 3 columns - more effective use ofthe white space
@@ -41,7 +43,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="Filter">
-          {this.renderLandingContainer()}
+          <LandingContainer />
           <div className='AboutMeContainer' id='AboutMe'>
             <Fade left delay={400} timeout={2000}>
               <h1 >About Me</h1>
