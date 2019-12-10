@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/jmengo.github.io/precache-manifest.a37a2e4c2711efc139bda8e81c9645e0.js"
+  "/jmengo.github.io/precache-manifest.d1c87742c9609a00c490610057b645e8.js"
 );
 
 self.addEventListener('message', (event) => {

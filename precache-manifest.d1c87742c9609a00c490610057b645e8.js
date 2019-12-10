@@ -1,19 +1,19 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d9906965ca64c2259338224d138f6783",
+    "revision": "12bad0206603f1329b0b742ddae81e00",
     "url": "/jmengo.github.io/index.html"
   },
   {
-    "revision": "960784cf82698ddfc994",
-    "url": "/jmengo.github.io/static/css/main.c2620ac4.chunk.css"
+    "revision": "cec6ce1fc0be68a41f71",
+    "url": "/jmengo.github.io/static/css/main.b375ee16.chunk.css"
   },
   {
-    "revision": "fe286586d6aa02c63523",
-    "url": "/jmengo.github.io/static/js/2.26d2f2bc.chunk.js"
+    "revision": "18928c5092f6819067a1",
+    "url": "/jmengo.github.io/static/js/2.c8b63f76.chunk.js"
   },
   {
-    "revision": "960784cf82698ddfc994",
-    "url": "/jmengo.github.io/static/js/main.27db9f80.chunk.js"
+    "revision": "cec6ce1fc0be68a41f71",
+    "url": "/jmengo.github.io/static/js/main.0acb12af.chunk.js"
   },
   {
     "revision": "25ed9c616fdd2b31cab0",
@@ -26,9 +26,5 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
     "revision": "0723c71a2d51fca3e232dc38d68bbdba",
     "url": "/jmengo.github.io/static/media/chevronDown.0723c71a.svg"
-  },
-  {
-    "revision": "25bf045ca257e971124f3997d89f321c",
-    "url": "/jmengo.github.io/static/media/logo.25bf045c.svg"
   }
 ]);
