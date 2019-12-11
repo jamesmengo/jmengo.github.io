@@ -1,16 +1,12 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import './LandingContainer.css'
+import '../styles/LandingContainer.css'
 import { Fade } from 'react-reveal';
 import { Link, animateScroll as scroll } from 'react-scroll';
+import 'react-typist/dist/Typist.css'
 import Typist from 'react-typist';
-import Chevron from './assets/chevronDown.svg';
+import Chevron from '../assets/chevronDown.svg';
 
 export class LandingContainer extends Component {
-  static propTypes = {
-
-  }
-
   render() {
     return (
       <div className="LandingContainer">
@@ -19,13 +15,15 @@ export class LandingContainer extends Component {
           <span className="NameSecond">{' Meng'}</span>
         </div>
         <div>
-          <Typist style={{ color: 'white' }}>
+          <Typist
+            startDelay='2000'
+            style={{ color: 'white' }}
+          >
+            <span className={'scrollText'}>Developer. </span>
             <Typist.Delay ms={1000} />
-            <span className={'scrollText'}>Developer.</span>
-            <Typist.Delay ms={500} />
-            <span className={'scrollText'}> Student Leader.</span>
-            <Typist.Delay ms={500} />
-            <span className={'scrollText'}> Tech Enthusiast.</span>
+            <span className={'scrollText'}>Student Leader. </span>
+            <Typist.Delay ms={1000} />
+            <span className={'scrollText'}>Tech Enthusiast. </span>
           </Typist>
         </div>
         <Fade timeout={2000}>
