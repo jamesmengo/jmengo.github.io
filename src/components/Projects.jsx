@@ -8,8 +8,8 @@ import { ProjectCard } from "./subcomponents/ProjectCard";
 
 const CarouselButton = withStyles(theme => ({
   root: {
-    position: "absolute",
-    height: "calc(100vh - 98px)"
+    height: "calc(100vh - 98px)",
+    zIndex: 9999
   }
 }))(Button);
 
@@ -64,15 +64,17 @@ export class Projects extends Component {
             >
               <h1>{"<"}</h1>
             </CarouselButton>
-            <div
-              style={{
-                transform: `translateX(calc((100vw - 98px) * -${activeSlide}))`
-              }}
-              className={styles.carouselBody}
-            >
-              <div className={styles.carouselPage}>hello1</div>
-              <div className={styles.carouselPage}>hello2</div>
-              <div className={styles.carouselPage}>hello3</div>
+            <div className={styles.test}>
+              <div
+                style={{
+                  transform: `translateX(calc((100vw - 212px) * -${activeSlide}))`
+                }}
+                className={styles.carouselBody}
+              >
+                <div className={styles.carouselPage}>hello1</div>
+                <div className={styles.carouselPage}>hello2</div>
+                <div className={styles.carouselPage}>hello3</div>
+              </div>
             </div>
 
             <CarouselButton
