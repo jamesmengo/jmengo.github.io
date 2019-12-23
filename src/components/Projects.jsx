@@ -67,7 +67,7 @@ export class Projects extends Component {
             <div className={styles.test}>
               <div
                 style={{
-                  transform: `translateX(calc((100vw - 212px) * -${activeSlide}))`
+                  transform: `translateX(calc((100%) * -${activeSlide}))`
                 }}
                 className={styles.carouselBody}
               >
