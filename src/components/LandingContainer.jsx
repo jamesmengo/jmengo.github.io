@@ -1,39 +1,36 @@
-import React, { Component } from 'react'
-import '../styles/LandingContainer.css'
-import { Fade } from 'react-reveal';
-import { Link, animateScroll as scroll } from 'react-scroll';
-import 'react-typist/dist/Typist.css'
-import Typist from 'react-typist';
-import Chevron from '../assets/chevronDown.svg';
+import React, { Component } from "react";
+import landingStyles from "../styles/LandingContainer.module.css";
+import { Fade } from "react-reveal";
+import Typist from "react-typist";
+import { Typography, Grid } from "@material-ui/core";
+import ChevronDown from "./subcomponents/ChevronDown";
 
 export class LandingContainer extends Component {
   render() {
     return (
-      <div className="LandingContainer">
-        <div>
-          <span className="NameFirst">{'James  '}</span>
-          <span className="NameSecond">{' Meng'}</span>
+      <Grid container className={landingStyles.landingContainer}>
+        <div className={landingStyles.titleContainer}>
+          <Typography variant="h1">
+            {"James  "}
+            <span className={landingStyles.titleBold}>{" Meng"}</span>
+          </Typography>
         </div>
         <div>
-          <Typist
-            startDelay='2000'
-            style={{ color: 'white' }}
-          >
-            <span className={'scrollText'}>Developer. </span>
+          <Typist>
             <Typist.Delay ms={1000} />
-            <span className={'scrollText'}>Student Leader. </span>
+            <span>Developer.</span>
             <Typist.Delay ms={1000} />
-            <span className={'scrollText'}>Tech Enthusiast. </span>
+            <span> Student Leader.</span>
+            <Typist.Delay ms={1000} />
+            <span> Tech Enthusiast.</span>
           </Typist>
         </div>
         <Fade timeout={2000}>
-          <Link to="AboutMe" spy={true} smooth={true} duration={1000}>
-            <img className={'Chevron'} style={{ color: 'white', height: 24, marginTop: '2rem' }} src={Chevron} alt='view more' />
-          </Link>
+          <ChevronDown to="AboutMe" />
         </Fade>
-      </div>
-    )
+      </Grid>
+    );
   }
 }
 
-export default LandingContainer
+export default LandingContainer;

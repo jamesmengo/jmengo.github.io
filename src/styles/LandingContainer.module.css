@@ -1,0 +1,20 @@
+/* Home Page Styles */
+.landingContainer {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.titleContainer {
+  min-width: max-content;
+}
+
+.titleBold {
+  color: darkgrey;
+  font-weight: 600;
+}

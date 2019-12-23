@@ -1,0 +1,23 @@
+h1 {
+  color: white;
+}
+
+.aboutMeContainer {
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+  font-family: 'Poppins';
+}
+
+.aboutMeBody {
+  padding: 1rem;
+}
+
+.aboutMeBody hr {
+  height: 1rem;
+  width: 30%;
+  margin-left: 0;
+  margin-top: -2rem;
+  position: relative;
+  background-color: white;
+}
