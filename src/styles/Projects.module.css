@@ -19,10 +19,13 @@
 .carouselBody {
   display: flex;
   transition: all 2000ms ease;
+  min-height: 100vh;
 }
 
 .carouselPage {
   min-width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .carouselIndicatorContainer {

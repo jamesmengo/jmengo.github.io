@@ -45,8 +45,8 @@ class App extends Component {
             <div className={styles.scrollIndicator} id="scrollIndicator" />
           </div>
           <LandingContainer />
-          <AboutMe />
-          <Projects />
+          {/* <AboutMe />
+          <Projects /> */}
         </div>
       </ThemeProvider>
     );

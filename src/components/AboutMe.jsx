@@ -3,8 +3,11 @@ import { Fade } from "react-reveal";
 import { Avatar, Grid, Typography } from "@material-ui/core";
 import { Computer, School, Group } from "@material-ui/icons";
 import { withStyles } from "@material-ui/core/styles";
+import styles from "../styles/AboutMe.module.css";
 import pageStyles from "../styles/Page.module.css";
 import ChevronDown from "../components/subcomponents/ChevronDown";
+import ReactLogo from "../assets/react.png";
+import ReduxLogo from "../assets/redux.png";
 
 const StyledAvatar = withStyles(theme => ({
   root: {
@@ -84,6 +87,23 @@ export class AboutMe extends Component {
                   group dynamics.
                 </Typography>
               </Fade>
+            </Grid>
+          </Grid>
+          <Grid container>
+            <Grid container item xs={12} justify="center">
+              <Typography variant="h5">
+                Technologies I enjoy working with
+              </Typography>
+            </Grid>
+            <Grid item xs={2} container alignItems="center">
+              <img
+                className={styles.logo}
+                src={ReactLogo}
+                alt="React.js Logo"
+              />
+            </Grid>
+            <Grid item xs={2} container alignItems="center">
+              <img className={styles.logo} src={ReduxLogo} alt="Redux Logo" />
             </Grid>
           </Grid>
         </div>

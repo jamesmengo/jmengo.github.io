@@ -71,8 +71,10 @@ export class Projects extends Component {
                 }}
                 className={styles.carouselBody}
               >
-                <div className={styles.carouselPage}>hello1</div>
-                <div className={styles.carouselPage}>hello2</div>
+                <div className={styles.carouselPage}>
+                  <ProjectCard type="0" />
+                </div>
+                <div className={styles.carouselPage}><ProjectCard type="1" /></div>
                 <div className={styles.carouselPage}>hello3</div>
               </div>
             </div>

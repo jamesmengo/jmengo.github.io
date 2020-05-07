@@ -18,3 +18,17 @@
   color: darkgrey;
   font-weight: 600;
 }
+
+.logoContainer {
+  max-width: 25%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.logo {
+  height: 2.4rem;
+  width: 2.4rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.8rem;
+}
