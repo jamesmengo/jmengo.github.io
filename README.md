@@ -6,4 +6,4 @@
 
 Note: This is a work in progress. Currently only the landing page is viewable to visitors.
 
-![](demo/portfolioDemo.gif)
+![](demo/portfolio_Demo.gif)
