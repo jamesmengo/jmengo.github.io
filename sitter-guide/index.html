@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f8f5">
+  <meta name="description" content="Nika's daily and weekly care, parking, and home essentials.">
+  <title>Nika's Sitter Guide</title>
+  <style>
+    :root {
+      --paper: #f6f8f5;
+      --surface: #eaf1ed;
+      --surface-strong: #dbe8e0;
+      --ink: #1c322a;
+      --muted: #52655c;
+      --accent: #317a61;
+      --feeding: #b87327;
+      --line: #d6e1d9;
+      --page: 1100px;
+      --body: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: auto; scroll-padding-top: 0; }
+    body { margin: 0; color: var(--ink); background: var(--paper); font: 18px/1.5 var(--body); }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-underline-offset: 3px; }
+    a:hover { color: var(--accent); }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .skip { position: fixed; left: 1rem; top: .5rem; z-index: 30; padding: .6rem .8rem; background: white; transform: translateY(-200%); }
+    .skip:focus { transform: translateY(0); }
+    .wrap { width: min(calc(100% - 3rem), var(--page)); margin-inline: auto; }
+
+    .header { display: block; padding: 2.4rem 0 1.5rem; }
+    h1 { margin: 0; font: 700 clamp(42px, 6vw, 72px)/1 var(--body); letter-spacing: -.045em; }
+    .subtitle { max-width: 56ch; margin: .65rem 0 0; color: var(--muted); font-size: 18px; line-height: 1.4; }
+    .global-nav { position: sticky; top: 0; z-index: 20; border-block: 1px solid var(--line); background: var(--paper); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: .8rem; min-height: 54px; }
+    .nav-inner a { display: inline-flex; align-items: center; min-height: 46px; padding: .35rem .15rem; font-size: 16px; font-weight: 650; text-decoration: none; }
+    .nav-inner a:hover { text-decoration: underline; text-decoration-thickness: 2px; }
+    main { min-width: 0; }
+    section { scroll-margin-top: 4rem; padding: 3.1rem 0; }
+    #cat { padding-top: 3.5rem; }
+    section.today { padding: 1.25rem 1.4rem 1.4rem; border: 1px solid var(--line); border-radius: 8px; background: var(--surface); }
+    h2 { margin: 0; font: 700 clamp(30px, 3vw, 38px)/1.1 var(--body); letter-spacing: -.035em; }
+    h3 { margin: 0 0 .45rem; font-size: 20px; line-height: 1.25; font-weight: 700; letter-spacing: -.02em; }
+    h4 { margin: 0 0 .25rem; font-size: 18px; line-height: 1.35; font-weight: 600; }
+    p { margin: 0 0 .75rem; }
+    p:last-child { margin-bottom: 0; }
+    .section-heading { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; margin-bottom: 1.1rem; }
+    .section-heading p { color: var(--muted); }
+    .routine-group + .routine-group { margin-top: 1.4rem; padding-top: 1.1rem; border-top: 1px solid var(--line); }
+    .routine-group > h3 { margin-bottom: .4rem; font-size: 18px; }
+    .care-frequency { margin: 1.6rem 0 .2rem; color: var(--accent); font-size: 16px; letter-spacing: .06em; text-transform: uppercase; }
+    .day-view { position: relative; display: grid; gap: 0; max-width: 940px; margin: 0; padding: 0 0 0 30px; list-style: none; }
+    .day-view::before { content: ""; position: absolute; left: 8px; top: .85rem; bottom: .85rem; width: 2px; background: var(--line); }
+    .day-event { position: relative; display: grid; grid-template-columns: 8rem minmax(0, 1fr); gap: .75rem; align-items: baseline; min-width: 0; padding: .7rem 0; border-bottom: 1px solid var(--line); }
+    .day-event:last-child { border-bottom: 0; }
+    .day-event::before { content: ""; position: absolute; left: -27px; top: 1rem; width: 12px; height: 12px; border: 2px solid var(--paper); border-radius: 50%; background: var(--muted); }
+    .day-event.is-feeding::before { background: var(--feeding); }
+    .event-time { display: block; margin: 0; color: var(--accent); font-size: 21px; line-height: 1.2; font-weight: 700; font-variant-numeric: tabular-nums; }
+    .day-event.is-feeding .event-time { color: var(--feeding); }
+    .event-time.is-flexible { color: var(--muted); font-size: 14px; line-height: 1.35; font-weight: 600; text-transform: uppercase; letter-spacing: .04em; }
+    .event-detail { display: flex; flex-wrap: wrap; align-items: baseline; gap: .15rem .55rem; margin: 0; line-height: 1.4; }
+    .event-detail span { color: var(--muted); font-size: 16px; }
+    .event-detail .event-followup { flex-basis: 100%; }
+    .event-detail a { color: var(--accent); font-weight: 600; }
+
+    .task-row { display: grid; grid-template-columns: minmax(175px, .28fr) minmax(0, 1fr); gap: clamp(1.4rem, 4vw, 3.5rem); align-items: start; padding: 1.6rem 0; border-bottom: 1px solid var(--line); scroll-margin-top: 5rem; }
+    .task-title p { max-width: 23ch; color: var(--muted); font-size: 16px; line-height: 1.4; }
+    .task-title > h4 { font-size: 20px; font-weight: 700; letter-spacing: -.02em; }
+    .task-body { min-width: 0; }
+    .task-body.with-photo { display: grid; grid-template-columns: minmax(0, 1fr) 190px; gap: 1.4rem; align-items: start; }
+    .photo { width: 100%; aspect-ratio: 1.2; object-fit: cover; background: var(--surface); }
+    .photo.square { aspect-ratio: 1; }
+    figure { min-width: 0; margin: 0; }
+    figcaption { margin-top: .35rem; color: var(--muted); font-size: 15px; line-height: 1.35; }
+    .note { margin-top: .8rem; padding: .75rem .9rem; background: var(--surface); }
+    .resource-links { display: flex; flex-wrap: wrap; gap: .3rem 1rem; margin-top: .55rem; font-size: 17px; }
+    .resource-links a { display: inline-flex; align-items: center; min-height: 40px; color: var(--accent); font-weight: 600; }
+    .cabinet-row { display: grid; grid-template-columns: minmax(0, 1fr) 240px; gap: 1.4rem; align-items: start; }
+    .cabinet .photo { aspect-ratio: 4 / 5; object-position: center top; }
+
+    .parking-facts { display: grid; grid-template-columns: minmax(0, 1fr) minmax(260px, .9fr); gap: 1.5rem; align-items: start; }
+    .map { width: 100%; aspect-ratio: 1.35; object-fit: cover; }
+    .reader-instruction { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 1rem; align-items: center; max-width: 650px; }
+    .reader-instruction .photo { aspect-ratio: 1; }
+    .reader-instruction p { margin: 0; }
+    .reader-instruction p + p { margin-top: .65rem; }
+    #waste .reader-instruction { margin-bottom: 1.25rem; }
+    .waste-list { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+    .waste-item { display: grid; grid-template-columns: 140px minmax(0, 1fr); gap: .9rem; align-items: center; padding: .8rem; border: 1px solid var(--line); border-radius: 7px; background: var(--paper); }
+    .waste-item .photo { aspect-ratio: 1; }
+    .footer { padding: 1.5rem 0 2.5rem; color: var(--muted); font-size: 15px; }
+
+    @media (max-width: 900px) {
+      .task-row { display: block; }
+      .task-title { margin-bottom: .8rem; }
+      .task-title p { max-width: none; }
+    }
+    @media (max-width: 840px) {
+      .wrap { width: min(calc(100% - 2rem), var(--page)); }
+      body { font-size: 17px; }
+      .header { display: block; padding-top: 1.5rem; }
+      .subtitle { font-size: 18px; }
+      .nav-inner { justify-content: flex-start; gap: clamp(1rem, 4vw, 2.25rem); }
+      .nav-inner a { font-size: 17px; }
+      .day-event { grid-template-columns: 7rem minmax(0, 1fr); }
+      .event-time { font-size: 19px; }
+      .event-time.is-flexible { font-size: 13px; }
+      h3, h4, .task-title > h4 { font-size: 18px; }
+      .task-title p, .event-detail span, figcaption, .footer { font-size: 17px; }
+      .task-body.with-photo { grid-template-columns: minmax(0, 1fr) 155px; gap: 1rem; }
+      .cabinet-row { grid-template-columns: minmax(0, 1fr) 170px; }
+      .parking-facts { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .waste-item { grid-template-columns: 112px minmax(0, 1fr); }
+    }
+    @media (max-width: 720px) {
+      .parking-facts { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      body { font-size: 17px; }
+      .wrap { width: min(calc(100% - 2.25rem), var(--page)); }
+      .header { padding: 1.2rem 0 .9rem; }
+      h1 { font-size: 42px; line-height: 1.02; }
+      .subtitle { max-width: 34ch; font-size: 18px; }
+      .global-nav { overflow-x: auto; }
+      .nav-inner { justify-content: space-between; gap: .35rem; min-height: 48px; }
+      .nav-inner a { min-height: 44px; padding-inline: .05rem; font-size: 17px; white-space: nowrap; }
+      section { padding: 2.3rem 0; }
+      section.today { padding: .9rem; }
+      .section-heading { display: block; margin-bottom: .85rem; }
+      .section-heading p { margin-top: .25rem; font-size: 17px; }
+      h2 { font-size: 34px; }
+      h3 { font-size: 18px; }
+      .day-view { padding-left: 25px; }
+      .day-view::before { left: 6px; }
+      .day-event { grid-template-columns: 5.5rem minmax(0, 1fr); gap: .45rem; padding: .65rem 0; }
+      .day-event::before { left: -24px; }
+      .event-time { font-size: 18px; }
+      .event-time.is-flexible { font-size: 12px; }
+      .event-detail { gap: .1rem .4rem; font-size: 16px; }
+      .event-detail span { font-size: 15px; }
+      .task-row { display: block; padding: 1.2rem 0; }
+      .task-title { margin-bottom: .65rem; }
+      .task-title p { max-width: none; margin: 0; font-size: 17px; }
+      .task-body.with-photo { grid-template-columns: minmax(0, 1fr); }
+      .task-body.with-photo figure { max-width: 250px; }
+      .cabinet-row { grid-template-columns: minmax(0, 1fr); }
+      .cabinet-row figure { max-width: 300px; }
+      .parking-facts { grid-template-columns: 1fr; gap: .9rem; }
+      .map { aspect-ratio: 1.5; }
+      .reader-instruction { grid-template-columns: 80px minmax(0, 1fr); gap: .8rem; }
+      .waste-list { grid-template-columns: 1fr; gap: .9rem; }
+      .waste-item { grid-template-columns: 72px minmax(0, 1fr); }
+      .footer { padding-top: 1rem; }
+    }
+    @media (max-width: 390px) {
+      .nav-inner a { font-size: 15px; }
+      .day-event { min-height: auto; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+    @media print {
+      .global-nav { display: none; }
+      body { background: white; font-size: 11pt; }
+      section, .task-row, .waste-item, .day-event { break-inside: avoid; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to guide</a>
+  <header class="wrap header">
+    <div>
+      <h1>Nika's sitter guide</h1>
+    </div>
+    <p class="subtitle">Cat care, parking, and home essentials.</p>
+  </header>
+
+  <nav class="global-nav" aria-label="Guide sections">
+    <div class="wrap nav-inner">
+      <a href="#today">Routine</a>
+      <a href="#cat">Cat care</a>
+      <a href="#home">Home</a>
+    </div>
+  </nav>
+
+  <main id="main" class="wrap">
+    <section class="today" id="today">
+      <div class="section-heading">
+        <h2>Routine</h2>
+        <p>Usual feeding times; adjust to suit your day.</p>
+      </div>
+      <div class="routine-group">
+      <h3>Daily</h3>
+      <ol class="day-view" aria-label="Daily feeding and litter schedule">
+        <li class="day-event">
+          <span class="event-time is-flexible">Any time</span>
+          <p class="event-detail"><strong>Scoop & rake litter</strong><span>Once daily, usually first thing.</span><span class="event-followup">Top up the litter every couple of days.</span></p>
+        </li>
+        <li class="day-event is-feeding">
+          <time class="event-time" datetime="08:00">8 am</time>
+          <p class="event-detail"><strong>Serve wet food</strong><span>About 1/5 can (~30 g) · <a href="https://www.purina.ca/friskies/wet-cat-food/shredded-super-pack" target="_blank" rel="noopener">Friskies Shredded</a></span></p>
+        </li>
+        <li class="day-event is-feeding">
+          <time class="event-time" datetime="14:00">2 pm</time>
+          <p class="event-detail"><strong>Dry food (automatic)</strong><span>1 portion · <a href="https://www.orijenpetfoods.com/en-CA/cats/cat-food/original-cat/ds-ori-cat-kitten.html" target="_blank" rel="noopener">ORIJEN Original</a></span></p>
+        </li>
+        <li class="day-event is-feeding">
+          <time class="event-time" datetime="20:00">8 pm</time>
+          <p class="event-detail"><strong>Dry food (automatic)</strong><span>1 portion.</span></p>
+        </li>
+      </ol>
+      </div>
+      <div class="routine-group">
+        <h3>Weekly</h3>
+        <ul class="day-view" aria-label="Weekly cat care">
+          <li class="day-event">
+            <span class="event-time is-flexible">Any day</span>
+            <p class="event-detail"><strong><a href="#water">Rinse the fountain & change the water</a></strong><span>Once a week.</span></p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="cat">
+      <h2>Cat care</h2>
+
+      <h3 class="care-frequency">Daily</h3>
+
+      <article class="task-row" id="litter">
+        <div class="task-title">
+          <h4>Scoop litter</h4>
+        </div>
+        <div class="task-body">
+          <div class="reader-instruction">
+            <img class="photo" src="assets/litter-tray.jpg" alt="Nika's litter tray">
+            <div>
+              <p>Scoop once a day, usually first thing, then rake flat.</p>
+              <p><strong>Top up the litter every couple of days.</strong> No full tray wash needed during this stay.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article class="task-row" id="wet-food">
+        <div class="task-title">
+          <h4>Wet food</h4>
+        </div>
+        <div class="task-body">
+          <p>Serve about <strong>1/5 can (~30 g)</strong> of <a href="https://www.purina.ca/friskies/wet-cat-food/shredded-super-pack" target="_blank" rel="noopener">Friskies Shredded</a> once a day, usually around <strong>8 am</strong>.</p>
+        </div>
+      </article>
+
+      <article class="task-row" id="feeder">
+        <div class="task-title">
+          <h4>Automatic feeder</h4>
+        </div>
+        <div class="task-body with-photo">
+          <div>
+            <p>Use the preset schedule: <strong>1 portion at 2 pm and 1 portion at 8 pm</strong>. Check the food level through the window.</p>
+            <div class="resource-links">
+              <a href="https://cdn.shopify.com/s/files/1/0252/5197/1119/files/PETLIBRO_Granary_Automatic_Feeder_PLAF005_3L_PLAF006_5L_USER_MANUAL_d5a74300-1531-4b78-b71e-68cc5fc20181.pdf?v=1692347897" target="_blank" rel="noopener">Feeder manual (PDF)</a>
+            </div>
+            <p class="note"><strong>Away overnight?</strong> Set the feeder to dispense dry food 3 times a day. Nika can skip wet food for a couple of days.</p>
+          </div>
+          <figure>
+            <img class="photo" src="assets/automatic-feeder.jpg" alt="PETLIBRO automatic feeder and bowl">
+          </figure>
+        </div>
+      </article>
+
+      <h3 class="care-frequency">Weekly</h3>
+
+      <article class="task-row" id="water">
+        <div class="task-title">
+          <h4>Water fountain</h4>
+        </div>
+        <div class="task-body">
+          <div class="reader-instruction">
+            <img class="photo" src="assets/water-fountain.jpg" alt="Nika's water fountain">
+            <div>
+              <p>Unplug and rinse inside at the sink, then change the water.</p>
+              <p>A red flash means low water. No filter change needed during this stay.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <h3 class="care-frequency">Optional</h3>
+
+      <article class="task-row" id="supplies">
+        <div class="task-title">
+          <h4>Treats</h4>
+        </div>
+        <div class="task-body cabinet-row">
+          <div>
+            <p>Find the treats on the top shelf of the cabinet below the microwave.</p>
+            <p>Give dental treats or Catit treats. Keep all treats combined to <strong>no more than <a href="https://www.aaha.org/resources/2021-aaha-nutrition-and-weight-management-guidelines/feeding-plans-for-healthy-appropriate-weight-cats-and-dogs/" target="_blank" rel="noopener">10% of Nika's daily calories</a></strong>. Check the calories on the packaging.</p>
+          </div>
+          <figure class="cabinet">
+            <img class="photo" src="assets/supplies-cabinet.jpg" alt="Microwave above the large wooden cabinet door on the right">
+            <figcaption>Open the large door below the microwave, on the right.</figcaption>
+          </figure>
+        </div>
+      </article>
+    </section>
+
+    <section id="home">
+      <h2>Home</h2>
+
+      <article class="task-row" id="parking">
+        <div class="task-title">
+          <h3>Parking</h3>
+        </div>
+        <div class="task-body">
+          <div class="parking-facts">
+            <div>
+              <p>Park in the Loggers Lane spot shown on the map; visitor parking is often full.</p>
+              <p>You can park for up to 72 hours. Move your car to another spot in the same lot before that time is up.</p>
+            </div>
+            <figure>
+              <img class="photo map" src="assets/parking-map.png" alt="Map showing the Loggers Lane parking spot and walking route to the building">
+              <figcaption>4 min walk · 260 m</figcaption>
+            </figure>
+          </div>
+        </div>
+      </article>
+
+      <article class="task-row" id="garage">
+        <div class="task-title">
+          <h3>Garage</h3>
+        </div>
+        <div class="task-body">
+          <div class="reader-instruction">
+            <img class="photo" src="assets/garage-fob-reader.jpg" alt="Key fob at the garage reader">
+            <p>Use the key fob at the garage reader to open the door.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="task-row" id="waste">
+        <div class="task-title">
+          <h3>Garbage & recycling</h3>
+        </div>
+        <div class="task-body">
+          <div class="reader-instruction">
+            <img class="photo" src="assets/garbage-room-reader.jpg" alt="Garbage room door with the fob reader on its left">
+            <p>Use the fob reader on the <strong>left of the garbage room door</strong> to get in.</p>
+          </div>
+          <div class="waste-list">
+            <div class="waste-item">
+              <img class="photo square" src="assets/garbage-bin.jpg" alt="Small white garbage bin under the sink">
+              <p><strong>Garbage:</strong> small white bin under the sink. Bags are there too.</p>
+            </div>
+            <div class="waste-item">
+              <img class="photo square" src="assets/recycling-bin.jpg" alt="Silver freestanding recycling bin">
+              <p><strong>Recycling:</strong> silver bin behind the couch.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer class="footer">Nika's sitter guide</footer>
+  </main>
+</body>
+</html>
+
